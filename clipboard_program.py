@@ -11,13 +11,12 @@ def save_data(filepath, data):
 
 
 def load_data(filepath):
-    with open(filepath, 'r') as file:
-        data = json.load(file)
-        return data
-
-
-print("Loading data")
-print(sys.argv)
+    try:
+        with open(filepath, 'r') as file:
+            data = json.load(file)
+            return data
+    except:
+        return {}
 
 
 if len(sys.argv) == 2:
@@ -28,12 +27,18 @@ if len(sys.argv) == 2:
         key = input("enter a key... ")
         data[key] = clipboard.paste()
         save_data(SAVED_FIlE, data)
+        print("Done saving!")
 
     elif function == 'load':
-        pass
+        key = input("enter a key... ")
+        if key in data:
+            clipboard.copy(data[key])
+            print("data copied to clipboard!")
+        else:
+            print("no such key found!")
 
     elif function == 'list':
-        print('list')
+        print(data)
 
     else:
         print('Function not supported.')
