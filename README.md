@@ -22,7 +22,7 @@ if save is the command then we run a function with arguments file and data to be
 We open the file as write using open -'w' and dump json data in it.
 Here json data is the data from clipboard.paste() ie data that is currently in the system's clipboard.
 
-For storing a data in system clipboard we ask for a key and from the file data which we loaded with read we use clipboard.save(data) which will load the key pair data to the system's clipboard.
+For storing a data in system clipboard we ask for a key and from the file data which we loaded with read we use clipboard.copy(data) which will load the key pair data to the system's clipboard.
 
 data is loaded for both saving and loading the data whith load_data function.
 
