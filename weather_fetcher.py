@@ -1,10 +1,11 @@
 import requests
 
+# use specific api key by registering user from the website openweathermap.org
 API_KEY = ""
-BASE_URL = ""
+BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
 city = input("Enter the name of the City... ")
-request_url = f"{BASE_URL}?apiid={API_KEY}&q={city}"
+request_url = f"{BASE_URL}?q={city}&appid={API_KEY}"
 
 response = requests.get(request_url)
 
